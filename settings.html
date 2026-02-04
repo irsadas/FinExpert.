@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Client Settings - FinExpert">
+    <title>Settings - FinExpert</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo" style="color: var(--white);">Fin<span>Expert</span>.</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Documents</a></li>
+                <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="billing.html"><i class="fas fa-file-invoice"></i> Billing</a></li>
+                <li><a href="settings.html" class="active"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="mobile-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></div>
+                    <h2>Settings</h2>
+                </div>
+                <div class="header-right">
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                    <div class="notifications-dropdown">
+                        <button id="notifications-btn" class="notifications-btn" aria-label="Notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div id="notifications-menu" class="notifications-menu">
+                            <div class="notifications-header">
+                                Notifications
+                                <button id="mark-all-read" class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #fee2e2; color: #ef4444;"><i class="fas fa-exclamation-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>Tax filing deadline approaching!</p>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #d1fae5; color: #059669;"><i class="fas fa-check-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>Invoice #1023 has been paid.</p>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #e0f2fe; color: #0ea5e9;"><i class="fas fa-info-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>New document uploaded by Mike.</p>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="notifications-footer">
+                                <a href="#">View All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <span>John Doe</span>
+                        <div class="avatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="settings-page">
+                    <div class="settings-tabs">
+                        <button class="tab-btn active" data-tab="profile">Profile</button>
+                        <button class="tab-btn" data-tab="security">Security</button>
+                        <button class="tab-btn" data-tab="preferences">Preferences</button>
+                    </div>
+
+                    <div class="settings-content">
+                        <!-- Profile Tab -->
+                        <div id="profile" class="tab-content active">
+                            <div class="settings-card">
+                                <h3>Profile Information</h3>
+                                <p>Update your personal and company details.</p>
+                                <form id="profile-settings-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="profile-name">Full Name</label>
+                                            <input type="text" id="profile-name" class="form-control" value="John Doe">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-email">Email Address</label>
+                                            <input type="email" id="profile-email" class="form-control" value="john@example.com" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="profile-phone">Phone Number</label>
+                                            <input type="tel" id="profile-phone" class="form-control" value="+1 (555) 123-4567">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="profile-company">Company Name</label>
+                                            <input type="text" id="profile-company" class="form-control" value="Acme Corp">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Save Profile</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Security Tab -->
+                        <div id="security" class="tab-content">
+                            <div class="settings-card">
+                                <h3>Change Password</h3>
+                                <p>For your security, we recommend using a strong password.</p>
+                                <form id="security-settings-form">
+                                    <div class="form-group">
+                                        <label for="current-password">Current Password</label>
+                                        <input type="password" id="current-password" class="form-control" placeholder="Enter current password">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="new-password">New Password</label>
+                                            <input type="password" id="new-password" class="form-control" placeholder="Enter new password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="confirm-password">Confirm Password</label>
+                                            <input type="password" id="confirm-password" class="form-control" placeholder="Confirm new password">
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Update Password</button>
+                                </form>
+                            </div>
+
+                            <div class="settings-card" style="margin-top: 30px;">
+                                <h3>Two-Factor Authentication (2FA)</h3>
+                                <div class="preference-item">
+                                    <div>
+                                        <h4>Status: <span style="color: #ef4444; font-weight: bold;">Disabled</span></h4>
+                                        <p style="margin: 0; color: #6b7280;">Add an additional layer of security to your account.</p>
+                                    </div>
+                                    <button id="setup-2fa-btn" class="btn btn-outline-dark">Enable 2FA</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preferences Tab -->
+                        <div id="preferences" class="tab-content">
+                            <div class="settings-card">
+                                <h3>Notification Preferences</h3>
+                                <p>Manage how you receive communications from us.</p>
+                                <form id="preferences-form">
+                                    <div class="preference-item">
+                                        <div>
+                                            <h4>Email Notifications</h4>
+                                            <p style="margin: 0; color: #6b7280;">Receive updates about your account and filings.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox" checked>
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <div class="preference-item">
+                                        <div>
+                                            <h4>Newsletter Subscription</h4>
+                                            <p style="margin: 0; color: #6b7280;">Get our monthly newsletter with financial tips.</p>
+                                        </div>
+                                        <label class="switch">
+                                            <input type="checkbox">
+                                            <span class="slider"></span>
+                                        </label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-top: 30px;">Save Preferences</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 2FA Setup Modal -->
+    <div id="2fa-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <span>Security</span>
+                <h2 style="font-size: 1.8rem;">Set Up 2FA</h2>
+            </div>
+            <div class="text-center">
+                <p>1. Scan this QR code with your authenticator app.</p>
+                <div class="qr-code">
+                    <!-- Placeholder for QR Code Image -->
+                    <i class="fas fa-qrcode" style="font-size: 100px; color: var(--text-main);"></i>
+                </div>
+                <p style="margin-top: 20px;">2. Enter the 6-digit code from your app to verify.</p>
+            </div>
+            <form id="2fa-verify-form" style="margin-top: 20px;">
+                <div class="form-group">
+                    <label for="2fa-code">Verification Code</label>
+                    <input type="text" id="2fa-code" class="form-control" placeholder="123456" required maxlength="6" pattern="\d{6}">
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Enable & Verify</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

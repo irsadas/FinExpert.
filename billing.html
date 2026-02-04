@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Billing & Invoices - FinExpert">
+    <title>Billing - FinExpert</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo" style="color: var(--white);">Fin<span>Expert</span>.</a>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="documents.html"><i class="fas fa-file-alt"></i> Documents</a></li>
+                <li><a href="messages.html"><i class="fas fa-envelope"></i> Messages</a></li>
+                <li><a href="billing.html" class="active"><i class="fas fa-file-invoice"></i> Billing</a></li>
+                <li><a href="settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="header-left">
+                    <div class="mobile-toggle" id="sidebar-toggle"><i class="fas fa-bars"></i></div>
+                    <h2>Billing & Invoices</h2>
+                </div>
+                <div class="header-right">
+                    <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+                    <div class="notifications-dropdown">
+                        <button id="notifications-btn" class="notifications-btn" aria-label="Notifications">
+                            <i class="fas fa-bell"></i>
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <div id="notifications-menu" class="notifications-menu">
+                            <div class="notifications-header">
+                                Notifications
+                                <button id="mark-all-read" class="mark-all-read">Mark all as read</button>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #fee2e2; color: #ef4444;"><i class="fas fa-exclamation-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>Tax filing deadline approaching!</p>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #d1fae5; color: #059669;"><i class="fas fa-check-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>Invoice #1023 has been paid.</p>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon" style="background-color: #e0f2fe; color: #0ea5e9;"><i class="fas fa-info-circle"></i></div>
+                                <div class="notification-content">
+                                    <p>New document uploaded by Mike.</p>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="notifications-footer">
+                                <a href="#">View All Notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="user-profile">
+                        <span>John Doe</span>
+                        <div class="avatar">JD</div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <!-- Current Plan Section -->
+                <section class="current-plan-section">
+                    <h3 style="margin-bottom: 20px;">My Plan</h3>
+                    <div class="plan-card">
+                        <div class="plan-details">
+                            <h4>Standard Plan</h4>
+                            <div class="price">$599<span>/mo</span></div>
+                            <p>Your plan renews on November 30, 2023.</p>
+                        </div>
+                        <div class="plan-actions">
+                            <button class="btn btn-primary">Upgrade Plan</button>
+                            <button class="btn btn-outline-dark">Cancel</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Invoice History Section -->
+                <section class="invoice-history-section" style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px;">Invoice History</h3>
+                    <div class="table-responsive">
+                        <table class="files-table">
+                            <thead>
+                                <tr>
+                                    <th>Invoice ID</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#INV-2023-101</td>
+                                    <td>Oct 30, 2023</td>
+                                    <td>$599.00</td>
+                                    <td><span class="status status-paid">Paid</span></td>
+                                    <td><a href="#" class="btn-sm"><i class="fas fa-download"></i> Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-2023-100</td>
+                                    <td>Sep 30, 2023</td>
+                                    <td>$599.00</td>
+                                    <td><span class="status status-paid">Paid</span></td>
+                                    <td><a href="#" class="btn-sm"><i class="fas fa-download"></i> Download</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#INV-2023-099</td>
+                                    <td>Aug 30, 2023</td>
+                                    <td>$599.00</td>
+                                    <td><span class="status status-paid">Paid</span></td>
+                                    <td><a href="#" class="btn-sm"><i class="fas fa-download"></i> Download</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

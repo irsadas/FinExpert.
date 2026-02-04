@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Chartered Accountant Portfolio - Tax, Audit, and Financial Consulting Services.">
+    <title>Expert Accounting & Financial Solutions</title>
+    
+    <!-- Fonts: Inter for a clean, corporate look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">Fin<span>Expert</span>.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li class="dropdown">
+                    <a href="#services">Services <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Tax Filing</a></li>
+                        <li><a href="#">Bookkeeping</a></li>
+                        <li><a href="#">Audit & Assurance</a></li>
+                        <li><a href="#">Financial Advisory</a></li>
+                    </ul>
+                </li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" id="login-btn" class="nav-btn">Client Portal</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode"><i class="fas fa-moon"></i></button>
+            <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Smart Accounting & Tax Solutions for Your Business</h1>
+                <p>Providing expert financial guidance, compliance assurance, and strategic growth planning for startups and established enterprises.</p>
+                <div class="hero-btns">
+                    <a href="#" id="open-modal-btn" class="btn btn-primary">Book a Consultation</a>
+                    <a href="#services" class="btn btn-outline">View Services</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding reveal">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-header" style="text-align: left; margin-bottom: 20px;">
+                        <span>About Me</span>
+                        <h2>Your Trusted Financial Partner</h2>
+                    </div>
+                    <p>I am a Certified Chartered Accountant with over 10 years of experience helping businesses navigate the complexities of finance. My approach combines technical expertise with a deep understanding of business strategy.</p>
+                    <p>Whether you need assistance with tax planning, auditing, or financial consulting, I provide personalized solutions that ensure compliance and drive growth.</p>
+                    
+                    <div class="trust-badges">
+                        <div class="badge"><i class="fas fa-certificate"></i> Certified CPA</div>
+                        <div class="badge"><i class="fas fa-shield-alt"></i> 100% Secure</div>
+                        <div class="badge"><i class="fas fa-clock"></i> Reliable</div>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <!-- Placeholder for professional headshot -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80" alt="Professional Accountant">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>What I Do</span>
+                <h2>Comprehensive Financial Services</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Tax Filing & Planning</h3>
+                    <p>Maximize your deductions and ensure full compliance with strategic tax planning and timely filing.</p>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>GST / VAT Compliance</h3>
+                    <p>Seamless handling of indirect tax calculations, returns, and regulatory adherence for your business.</p>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-calculator"></i></div>
+                    <h3>Bookkeeping & Payroll</h3>
+                    <p>Accurate record-keeping and managed payroll services to keep your operations running smoothly.</p>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search-dollar"></i></div>
+                    <h3>Audit & Assurance</h3>
+                    <p>Independent reviews and audits to validate financial health and increase stakeholder confidence.</p>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>Business Registration</h3>
+                    <p>End-to-end support for company incorporation, licensing, and statutory compliance setup.</p>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Financial Advisory</h3>
+                    <p>Strategic insights to help you manage cash flow, investments, and long-term business growth.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Me -->
+    <section id="why-choose" class="section-padding reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Why Choose Me</span>
+                <h2>Excellence in Every Detail</h2>
+            </div>
+            <div class="why-grid">
+                <div class="feature-box">
+                    <i class="fas fa-check-circle"></i>
+                    <h4>Accurate & Compliant</h4>
+                    <p>Zero tolerance for errors. Your books are always audit-ready.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-user-lock"></i>
+                    <h4>Confidential & Secure</h4>
+                    <p>Bank-grade data security protocols to protect your sensitive info.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-stopwatch"></i>
+                    <h4>On-time Delivery</h4>
+                    <p>Deadlines matter. We ensure all filings are submitted on schedule.</p>
+                </div>
+                <div class="feature-box">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h4>Personalized Advice</h4>
+                    <p>Tailored financial strategies that fit your specific business goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-padding bg-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Transparent Pricing</span>
+                <h2>Choose Your Plan</h2>
+            </div>
+            <div class="pricing-grid">
+                <!-- Basic Plan -->
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">$299<span>/mo</span></div>
+                    <p>For startups & freelancers</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Annual Tax Filing</li>
+                        <li><i class="fas fa-check"></i> Quarterly Reviews</li>
+                        <li><i class="fas fa-check"></i> Basic Bookkeeping</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Audit Support</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Financial Advisory</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-dark">Get Started</a>
+                </div>
+                <!-- Standard Plan -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Standard</h3>
+                    <div class="price">$599<span>/mo</span></div>
+                    <p>For growing small businesses</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Basic</li>
+                        <li><i class="fas fa-check"></i> Monthly Bookkeeping</li>
+                        <li><i class="fas fa-check"></i> Payroll Management</li>
+                        <li><i class="fas fa-check"></i> GST/VAT Returns</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Financial Advisory</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary">Get Started</a>
+                </div>
+                <!-- Premium Plan -->
+                <div class="pricing-card">
+                    <h3>Premium</h3>
+                    <div class="price">$999<span>/mo</span></div>
+                    <p>For established enterprises</p>
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> Everything in Standard</li>
+                        <li><i class="fas fa-check"></i> Full Audit Support</li>
+                        <li><i class="fas fa-check"></i> CFO Services</li>
+                        <li><i class="fas fa-check"></i> Strategic Planning</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline-dark">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Estimator Section -->
+    <section id="tax-estimator" class="section-padding reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Tools</span>
+                <h2>Tax Estimator</h2>
+            </div>
+            <div class="estimator-wrapper">
+                <form id="tax-estimator-form">
+                    <div class="form-group">
+                        <label for="annual-income">Annual Income ($)</label>
+                        <input type="number" id="annual-income" class="form-control" placeholder="e.g. 75000" required min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="filing-status">Filing Status</label>
+                        <select id="filing-status" class="form-control">
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="itemized-deductions">Itemized Deductions ($)</label>
+                        <input type="number" id="itemized-deductions" class="form-control" placeholder="e.g. 15000" min="0">
+                    </div>
+                    <button type="submit" class="btn btn-secondary" style="width: 100%;">Calculate Tax</button>
+                </form>
+                <div id="tax-result">
+                    <h3>Estimated Tax: <span id="estimated-amount">$0.00</span></h3>
+                    <p>Based on 2024 IRS progressive tax brackets and standard deduction.</p>
+                    <div class="chart-container" style="position: relative; height:250px; width:100%; margin-top: 20px;">
+                        <canvas id="taxChart"></canvas>
+                    </div>
+                    <div id="tax-breakdown" style="margin-top: 15px; text-align: left; font-size: 0.9rem; border-top: 1px dashed var(--border-color); padding-top: 15px;"></div>
+                    <button id="save-estimation-btn" class="btn btn-outline-dark" style="margin-top: 15px; width: 100%;"><i class="fas fa-save"></i> Save Estimation</button>
+                    <button id="export-pdf-btn" class="btn btn-outline-dark" style="margin-top: 20px; width: 100%;"><i class="fas fa-file-pdf"></i> Export as PDF</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Stats -->
+    <section id="experience" class="section-padding stats-section reveal">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>10+</h3>
+                    <p>Years Experience</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500+</h3>
+                    <p>Clients Served</p>
+                </div>
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>Compliance Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>$5M+</h3>
+                    <p>Tax Saved</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="section-padding bg-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Testimonials</span>
+                <h2>What Clients Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"FinExpert transformed how we handle our taxes. Professional, timely, and incredibly knowledgeable."</p>
+                    <span class="client-name">Sarah Jenkins</span>
+                    <span class="client-role">CEO, TechStart Inc.</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"The best decision we made for our small business. The strategic advice helped us grow 20% this year."</p>
+                    <span class="client-name">Michael Ross</span>
+                    <span class="client-role">Founder, Ross Retail</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Highly reliable and confidential. I trust them completely with my personal and business finances."</p>
+                    <span class="client-name">David Chen</span>
+                    <span class="client-role">Freelance Consultant</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section-padding reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Latest Insights</span>
+                <h2>Financial News & Updates</h2>
+            </div>
+            <div class="blog-grid">
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80" alt="Tax Season Tips">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Oct 24, 2023</span>
+                            <span><i class="far fa-folder"></i> Tax</span>
+                        </div>
+                        <h3>5 Essential Tax Saving Tips</h3>
+                        <p>Discover legal ways to reduce your tax liability and maximize your business profits this financial year.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80" alt="Financial Audit">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Nov 15, 2023</span>
+                            <span><i class="far fa-folder"></i> Audit</span>
+                        </div>
+                        <h3>Preparing for Your Annual Audit</h3>
+                        <p>A step-by-step guide to organizing your documents and ensuring a smooth auditing process.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-img">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&q=80" alt="Cash Flow Management">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Dec 02, 2023</span>
+                            <span><i class="far fa-folder"></i> Strategy</span>
+                        </div>
+                        <h3>Mastering Cash Flow for Startups</h3>
+                        <p>Learn how to effectively manage your cash flow to maintain liquidity and sustain business operations.</p>
+                        <a href="#" class="read-more">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="section-padding bg-light reveal">
+        <div class="container">
+            <div class="section-header">
+                <span>Common Questions</span>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What documents do I need for tax filing?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Generally, you will need your W-2s or 1099s, records of expenses/deductions, previous year's tax return, and valid identification. For businesses, profit and loss statements and balance sheets are also required.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Do you work with remote clients?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Yes! We utilize secure cloud-based accounting software and video conferencing tools to serve clients globally. You can upload documents securely through our client portal.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How are your fees structured?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>We offer both fixed-fee packages for ongoing services (like bookkeeping) and hourly rates for specialized consulting. We provide a transparent quote before starting any work.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can you help with IRS audits?</h3>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-content">
+                            <p>Absolutely. We provide full audit representation services, communicating directly with tax authorities on your behalf to resolve issues efficiently and minimize penalties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding reveal">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Get Expert Financial Help Today</h3>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Business Avenue, Financial District, City, Country</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>contact@finexpert.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" class="form-control">
+                                <option>Tax Filing</option>
+                                <option>Bookkeeping</option>
+                                <option>Audit</option>
+                                <option>Advisory</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" style="width: 100%;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>FinExpert.</h4>
+                    <p>Professional accounting services for modern businesses.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-service.html">Terms of Service</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for latest financial updates.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <input type="email" id="newsletter-email" placeholder="Your email" required>
+                        <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 FinExpert Accounting. All rights reserved. Disclaimer: Not legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Consultation Modal -->
+    <div id="consultation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <span>Get Started</span>
+                <h2 style="font-size: 1.8rem;">Book a Consultation</h2>
+            </div>
+            <form id="modal-form">
+                <div class="form-group">
+                    <label for="modal-name">Full Name</label>
+                    <input type="text" id="modal-name" class="form-control" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="modal-email">Email Address</label>
+                    <input type="email" id="modal-email" class="form-control" placeholder="john@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="modal-service">Service Interest</label>
+                    <select id="modal-service" class="form-control">
+                        <option>Tax Filing</option>
+                        <option>Bookkeeping</option>
+                        <option>Audit</option>
+                        <option>Advisory</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Request Booking</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>We use cookies to ensure you get the best experience on our website. <a href="#">Learn more</a></p>
+            <button id="accept-cookies" class="btn btn-primary">Accept</button>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <span>Welcome Back</span>
+                <h2 style="font-size: 1.8rem;">Client Login</h2>
+            </div>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" class="form-control" placeholder="********" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+                <p style="margin-top: 15px; text-align: center; font-size: 0.9rem;">
+                    <a href="#" id="forgot-password-link" style="color: var(--accent-gold);">Forgot Password?</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgot-password-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="section-header" style="margin-bottom: 30px;">
+                <span>Account Recovery</span>
+                <h2 style="font-size: 1.8rem;">Forgot Password</h2>
+            </div>
+            <form id="forgot-password-form">
+                <p style="margin-bottom: 20px; text-align: center; color: #6b7280;">Enter your email address and we'll send you a link to reset your password.</p>
+                <div class="form-group">
+                    <label for="forgot-email">Email Address</label>
+                    <input type="email" id="forgot-email" class="form-control" placeholder="john@example.com" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Reset Link</button>
+                <p style="margin-top: 15px; text-align: center; font-size: 0.9rem;">
+                    <a href="#" id="back-to-login" style="color: var(--accent-gold);">Back to Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
