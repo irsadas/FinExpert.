@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism GST Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Glassmorphism Custom Styles */
+        .glass {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Remove spinner arrows from number inputs */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        
+        /* Smooth transitions */
+        .transition-all-300 {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center p-4 font-sans text-white">
+
+    <div class="glass rounded-2xl p-6 md:p-8 w-full max-w-md transition-all-300">
+        <h1 class="text-3xl font-bold text-center mb-2 tracking-wide">GST Calculator</h1>
+        <p class="text-center text-blue-100 text-sm mb-6 opacity-80">Fast & Accurate Tax Calculations</p>
+
+        <!-- Mode Selection Tabs -->
+        <div class="flex mb-6 bg-black/20 rounded-lg p-1">
+            <button onclick="setMode('A')" id="tabA" class="flex-1 py-2 rounded-md text-xs md:text-sm font-medium transition-all duration-200 bg-white/20 shadow-sm">Standard</button>
+            <button onclick="setMode('B')" id="tabB" class="flex-1 py-2 rounded-md text-xs md:text-sm font-medium transition-all duration-200 hover:bg-white/10 text-gray-300">Inclusive</button>
+            <button onclick="setMode('C')" id="tabC" class="flex-1 py-2 rounded-md text-xs md:text-sm font-medium transition-all duration-200 hover:bg-white/10 text-gray-300">Tax Only</button>
+        </div>
+
+        <!-- Input Section -->
+        <div class="space-y-5 mb-6">
+            <!-- Dynamic Input Field -->
+            <div>
+                <label id="inputLabel" class="block text-sm font-medium mb-2 text-blue-100">Taxable Value</label>
+                <div class="relative group">
+                    <span class="absolute left-3 top-3 text-gray-300 group-focus-within:text-white transition-colors">₹</span>
+                    <input type="number" id="mainInput" class="w-full bg-white/10 border border-white/20 rounded-xl py-2.5 pl-8 pr-4 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/20 text-white placeholder-gray-400 transition-all" placeholder="0.00">
+                </div>
+            </div>
+
+            <!-- GST Rate Input -->
+            <div>
+                <label class="block text-sm font-medium mb-2 text-blue-100">GST Rate (%)</label>
+                <div class="relative group">
+                    <input type="number" id="rateInput" class="w-full bg-white/10 border border-white/20 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:bg-white/20 text-white placeholder-gray-400 transition-all" placeholder="18" value="18">
+                    <span class="absolute right-4 top-3 text-gray-300">%</span>
+                </div>
+                <!-- Quick Rate Buttons -->
+                <div class="flex gap-2 mt-3 justify-between">
+                    <button onclick="setRate(5)" class="flex-1 text-xs bg-white/10 hover:bg-white/20 py-1.5 rounded border border-white/10 transition-colors">5%</button>
+                    <button onclick="setRate(12)" class="flex-1 text-xs bg-white/10 hover:bg-white/20 py-1.5 rounded border border-white/10 transition-colors">12%</button>
+                    <button onclick="setRate(18)" class="flex-1 text-xs bg-white/10 hover:bg-white/20 py-1.5 rounded border border-white/10 transition-colors">18%</button>
+                    <button onclick="setRate(28)" class="flex-1 text-xs bg-white/10 hover:bg-white/20 py-1.5 rounded border border-white/10 transition-colors">28%</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="space-y-4 bg-black/20 rounded-xl p-5 mb-6 border border-white/5">
+            <!-- Result Row 1 -->
+            <div class="flex justify-between items-center">
+                <span id="resLabel1" class="text-gray-300 text-sm">IGST Amount</span>
+                <div class="flex items-center gap-3">
+                    <span id="resValue1" class="text-lg font-semibold tracking-wide">₹0.00</span>
+                    <button onclick="copyToClipboard('resValue1', this)" class="text-gray-400 hover:text-white transition-colors p-1 rounded hover:bg-white/10" title="Copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            
+            <!-- Result Row 2 -->
+            <div class="flex justify-between items-center">
+                <span id="resLabel2" class="text-gray-300 text-sm">Total Invoice</span>
+                <div class="flex items-center gap-3">
+                    <span id="resValue2" class="text-xl font-bold text-green-300 tracking-wide">₹0.00</span>
+                    <button onclick="copyToClipboard('resValue2', this)" class="text-gray-400 hover:text-white transition-colors p-1 rounded hover:bg-white/10" title="Copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Actions -->
+        <div class="flex justify-end">
+            <button onclick="resetCalculator()" class="text-xs text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                </svg>
+                Reset Fields
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let currentMode = 'A';
+
+        // DOM Elements
+        const mainInput = document.getElementById('mainInput');
+        const rateInput = document.getElementById('rateInput');
+        const inputLabel = document.getElementById('inputLabel');
+        const resLabel1 = document.getElementById('resLabel1');
+        const resLabel2 = document.getElementById('resLabel2');
+        const resValue1 = document.getElementById('resValue1');
+        const resValue2 = document.getElementById('resValue2');
+
+        // Mode Switching Logic
+        function setMode(mode) {
+            currentMode = mode;
+            
+            // Update Tabs Styling
+            ['A', 'B', 'C'].forEach(m => {
+                const btn = document.getElementById('tab' + m);
+                if(m === mode) {
+                    btn.classList.add('bg-white/20', 'shadow-sm', 'text-white');
+                    btn.classList.remove('hover:bg-white/10', 'text-gray-300');
+                } else {
+                    btn.classList.remove('bg-white/20', 'shadow-sm', 'text-white');
+                    btn.classList.add('hover:bg-white/10', 'text-gray-300');
+                }
+            });
+
+            // Update Labels based on Mode
+            if (mode === 'A') {
+                inputLabel.innerText = "Taxable Value";
+                resLabel1.innerText = "IGST Amount";
+                resLabel2.innerText = "Total Invoice Value";
+            } else if (mode === 'B') {
+                inputLabel.innerText = "Total Invoice Value";
+                resLabel1.innerText = "Taxable Value";
+                resLabel2.innerText = "IGST Amount";
+            } else if (mode === 'C') {
+                inputLabel.innerText = "IGST Amount";
+                resLabel1.innerText = "Taxable Value";
+                resLabel2.innerText = "Total Invoice Value";
+            }
+            
+            calculate();
+        }
+
+        // Quick Rate Setter
+        function setRate(r) {
+            rateInput.value = r;
+            calculate();
+        }
+
+        // Core Calculation Logic
+        function calculate() {
+            const val = parseFloat(mainInput.value);
+            const rate = parseFloat(rateInput.value);
+
+            if (isNaN(val) || isNaN(rate)) {
+                resValue1.innerText = "₹0.00";
+                resValue2.innerText = "₹0.00";
+                return;
+            }
+
+            let out1 = 0, out2 = 0;
+
+            if (currentMode === 'A') {
+                // Mode A: Taxable -> IGST + Invoice
+                out1 = val * (rate / 100); // IGST
+                out2 = val + out1;         // Invoice
+            } else if (currentMode === 'B') {
+                // Mode B: Invoice -> Taxable + IGST
+                out1 = val / (1 + (rate / 100)); // Taxable
+                out2 = val - out1;               // IGST
+            } else if (currentMode === 'C') {
+                // Mode C: IGST -> Taxable + Invoice
+                out1 = (val * 100) / rate; // Taxable
+                out2 = out1 + val;         // Invoice
+            }
+
+            resValue1.innerText = "₹" + out1.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            resValue2.innerText = "₹" + out2.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        }
+
+        function resetCalculator() {
+            mainInput.value = '';
+            rateInput.value = '18';
+            calculate();
+        }
+
+        function copyToClipboard(elementId, btn) {
+            const text = document.getElementById(elementId).innerText.replace('₹', '').replace(/,/g, '');
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback
+                const originalHTML = btn.innerHTML;
+                btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>`;
+                setTimeout(() => btn.innerHTML = originalHTML, 1500);
+            });
+        }
+
+        // Event Listeners
+        mainInput.addEventListener('input', calculate);
+        rateInput.addEventListener('input', calculate);
+
+        // Initialize
+        setMode('A');
+    </script>
+</body>
+</html>
